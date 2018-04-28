@@ -1,0 +1,1253 @@
+{
+    "default_icon": "binary_light_default.png",
+    "imgIconBody": "",
+    "imgIconDimmable": "",
+    "imgIconTurnable": "",
+    "imgIconMin": "icons/Binary_Light_0.png",
+    "imgIconMax": "icons/Binary_Light_100.png",
+    "halloIconsDir": "pics/hallo",
+    "state_icons": [
+			{
+		
+			"img": "http://anhman.neocities.org/pioneeron.png",
+			"conditions": [
+				{
+					"service": "urn:upnp-org:serviceId:SwitchPower1",
+					"variable": "Status",
+					"operator": "==",
+					"value": 1,
+					"subcategory_num": 0
+				},
+				{
+					"service": "urn:shward1-com:serviceId:PioneerNavigation1",
+					"variable": "muteStatus",
+					"operator": "==",
+					"value": "Off",
+					"subcategory_num": 0
+				}
+			]
+		},
+		{
+			"img": "http://anhman.neocities.org/pioneermute.png",
+			"conditions": [
+				{
+					"service": "urn:upnp-org:serviceId:SwitchPower1",
+					"variable": "Status",
+					"operator": "==",
+					"value": 1,
+					"subcategory_num": 0
+				},
+				{
+					"service": "urn:shward1-com:serviceId:PioneerNavigation1",
+					"variable": "muteStatus",
+					"operator": "==",
+					"value": "On",
+					"subcategory_num": 0
+				}
+			]
+		},
+		{
+			"img": "http://anhman.neocities.org/pioneeroff.png",
+			"conditions": [
+				{
+					"service": "urn:upnp-org:serviceId:SwitchPower1",
+					"variable": "Status",
+					"operator": "==",
+					"value": 0,
+					"subcategory_num": 0
+				}
+			]
+		}
+	],
+    "x": "2",
+    "y": "4",
+    "inScene": "1",
+    "DisplayStatus": {
+        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+        "Variable": "Status",
+        "MinValue": "0",
+        "MaxValue": "1"
+    },
+    "doc_url": {
+        "doc_language": 1,
+        "doc_manual": 1,
+        "doc_version": 1,
+        "doc_platform": 0,
+        "doc_page": "devices"
+    },
+    "ToggleButton": 1,
+    "Tabs": [{
+            "Label": {
+                "lang_tag": "tabname_control",
+                "text": "Control"
+            },
+            "Position": "0",
+            "TabType": "flash",
+            "ControlGroup": [
+                {
+                    "id": "1",
+                    "isSingle": "1",
+                    "scenegroup": "1"
+                }
+            ],
+            "SceneGroup": [
+                {
+                    "id": "1",
+                    "top": "0",
+                    "left": "0",
+                    "x": "2",
+                    "y": "5"
+                }
+            ],
+            "Control": [{
+                    "ControlGroup": "1",
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "cmd_off",
+                        "text": "Off"
+                    },
+                    "top": "0",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+                        "Variable": "Status",
+                        "Value": "0",
+                        "Top": 30,
+                        "Left": 20,
+                        "Width": 76,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+                        "Action": "SetTarget",
+                        "Parameters": [{
+                            "Name": "newTargetValue",
+                            "Value": "0"
+                        }]
+                    }
+                }, {
+                    "ControlGroup": "1",
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "cmd_on",
+                        "text": "On"
+                    },
+                    "top": "0",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+                        "Variable": "Status",
+                        "Value": "1",
+                        "Top": 30,
+                        "Left": 100,
+                        "Width": 76,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+                        "Action": "SetTarget",
+                        "Parameters": [{
+                            "Name": "newTargetValue",
+                            "Value": "1"
+                        }]
+                    }
+                },          {
+                "ControlGroup": 1,
+                "ControlType": "line_break"
+                      }, {
+                    "HorizontalMultiplier": "2",
+                    "ControlGroup": "1",
+                    "ControlType": "slider",
+                    "top": "0",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:upnp-org:serviceId:RenderingControl1",
+                        "Variable": "Volume",
+                        "ID": "Volume",
+                        "MinValue": "00",
+                        "MaxValue": "100",
+                        "Top": 60,
+                        "Left": 20,
+                        "Width": 200,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "SetVolumeTarget",
+                        "Parameters": [{
+                            "Name": "newTargetValue",
+                            "ID": "Volume"
+                        }]
+                    }
+                },
+
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "volume_down",
+                        "text": "- Volume"
+                    },
+                    "Display": {
+                        "Top": 90,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "VolumeDown",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "mute",
+                        "text": "Mute"
+                    },
+                    "Display": {
+                        "Top": 90,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20,
+                        "Variable": "Mute",
+                        "Value": "1",
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1"
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "ToggleMute",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "volume_up",
+                        "text": "+ Volume"
+                    },
+                    "Display": {
+                        "Top": 90,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "VolumeUp",
+                        "Parameters": []
+                    }
+                },
+
+                {
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "lblMsg",
+                        "text": "Inputs:"
+                    },
+                    "Display": {
+                        "Top": 125,
+                        "Left": 20,
+                        "Width": 76,
+                        "Height": 20
+                    }
+                },
+
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "DVD"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "DVD",
+                        "Top": 145,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inDVD",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "04_DVD",
+                        "Top": 170,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "BD"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "BD",
+                        "Top": 195,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inBD",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "25_BD",
+                        "Top": 220,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "TV/SAT"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "TVSAT",
+                        "Top": 245,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inTVSAT",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "05_TVSAT",
+                        "Top": 270,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "DVR/BDR"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "DVRBDR",
+                        "Top": 295,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inDVRBDR",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "15_DVRBDR",
+                        "Top": 320,
+                        "Left": 20,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "Video 1"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "Video1",
+                        "Top": 145,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inVideo1",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "10_Video1",
+                        "Top": 170,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "Video 2"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "Video2",
+                        "Top": 195,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inVideo2",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "14_Video2",
+                        "Top": 220,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "HDMI 1"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "HDMI1",
+                        "Top": 245,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inHDMI1",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "19_HDMI1",
+                        "Top": 270,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "HDMI 2"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "HDMI2",
+                        "Top": 295,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inHDMI2",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "20_HDMI2",
+                        "Top": 320,
+                        "Left": 110,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "HDMI 3"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "HDMI3",
+                        "Top": 145,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inHDMI3",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "21_HDMI3",
+                        "Top": 170,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "HDMI 4"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "HDMI4",
+                        "Top": 195,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inHDMI4",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "22_HDMI4",
+                        "Top": 220,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "HDMI 5"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "HDMI5",
+                        "Top": 245,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inHDMI5",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "23_HDMI5",
+                        "Top": 270,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "Internet"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "Internet",
+                        "Top": 295,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inInternet",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "26_Internet",
+                        "Top": 320,
+                        "Left": 200,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "iPod/USB"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "iPodUSB",
+                        "Top": 145,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inIpodUSB",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "17_IpodUSB",
+                        "Top": 170,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "XM Radio"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "XMRadio",
+                        "Top": 195,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inXMRadio",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "18_XMRadio",
+                        "Top": 220,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "CD"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "CD",
+                        "Top": 245,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inCD",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "01_CD",
+                        "Top": 270,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "CDR/Tape"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "CDRTape",
+                        "Top": 295,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inCDRTape",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "03_CDRTape",
+                        "Top": 320,
+                        "Left": 290,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "Tuner"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "Tuner",
+                        "Top": 145,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inTuner",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "02_Tuner",
+                        "Top": 170,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "Phono"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "Phono",
+                        "Top": 195,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inPhono",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "00_Phono",
+                        "Top": 220,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "device_control_page",
+                        "text": "SAT/CBL"
+                    },
+                    "top": "1",
+                    "left": "0",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "MainInput",
+                        "Value": "SATCBL",
+                        "Top": 245,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "inSATCBL",
+                        "Parameters": []
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "06_SATCBL",
+                        "Top": 270,
+                        "Left": 380,
+                        "Width": 80,
+                        "Height": 20
+                    }
+                }
+
+            ]
+        },
+
+        {
+            "Label": {
+                "lang_tag": "tabname_status",
+                "text": "Status"
+            },
+            "Position": "1",
+            "TabType": "flash",
+            "Control": [{
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "device_status_page",
+                        "text": "Power:"
+                    },
+                    "Display": {
+                        "Top": 20,
+                        "Left": 50,
+                        "Width": 50,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:upnp-org:serviceId:SwitchPower1",
+                        "Variable": "Status",
+                        "Top": 20,
+                        "Left": 110,
+                        "Width": 100,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "device_status_page",
+                        "text": "Mute:"
+                    },
+                    "Display": {
+                        "Top": 45,
+                        "Left": 50,
+                        "Width": 50,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "muteStatus",
+                        "Top": 45,
+                        "Left": 110,
+                        "Width": 100,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "device_status_page",
+                        "text": "Volume:"
+                    },
+                    "Display": {
+                        "Top": 70,
+                        "Left": 50,
+                        "Width": 50,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "currentVolumeDB",
+                        "Top": 70,
+                        "Left": 110,
+                        "Width": 100,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "label",
+                    "Label": {
+                        "lang_tag": "device_status_page",
+                        "text": "Input:"
+                    },
+                    "Display": {
+                        "Top": 95,
+                        "Left": 50,
+                        "Width": 50,
+                        "Height": 20
+                    }
+                },
+                {
+                    "ControlType": "variable",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "inputStatus",
+                        "Top": 95,
+                        "Left": 110,
+                        "Width": 100,
+                        "Height": 20
+                    }
+                }
+            ]
+        },
+
+        {
+            "Label": {
+                "lang_tag": "settings",
+                "text": "Settings"
+            },
+            "Position": "2",
+            "TabType": "javascript",
+            "ScriptName": "shared.js",
+            "Function": "simple_device"
+        },
+        {
+            "Label": {
+                "lang_tag": "advanced",
+                "text": "Advanced"
+            },
+            "Position": "2",
+            "TabType": "javascript",
+            "ScriptName": "shared.js",
+            "Function": "advanced_device"
+        }
+
+    ],
+    "sceneList": {
+        "group_1": {
+            "cmd_1": {
+                "label": "ON",
+                "serviceId": "urn:upnp-org:serviceId:SwitchPower1",
+                "action": "SetTarget",
+                "arguments": {
+                    "newTargetValue": "1"
+                },
+                "display": {
+                    "service": "urn:upnp-org:serviceId:SwitchPower1",
+                    "variable": "Status",
+                    "value": "1"
+                }
+            },
+            "cmd_2": {
+                "label": "OFF",
+                "serviceId": "urn:upnp-org:serviceId:SwitchPower1",
+                "action": "SetTarget",
+                "arguments": {
+                    "newTargetValue": "0"
+                },
+                "display": {
+                    "service": "urn:upnp-org:serviceId:SwitchPower1",
+                    "variable": "Status",
+                    "value": "0"
+                }
+            }
+        }
+    },
+    "eventList2": [{
+            "id": 1,
+            "label": {
+                "lang_tag": "device_turned_on_off",
+                "text": "A device is turned on or off"
+            },
+            "serviceId": "urn:upnp-org:serviceId:SwitchPower1",
+            "argumentList": [{
+                "id": 1,
+                "dataType": "boolean",
+                "defaultValue": "1",
+                "allowedValueList": [{
+                        "Off": "0",
+                        "HumanFriendlyText": {
+                            "lang_tag": "hft_device_turned_off",
+                            "text": "_DEVICE_NAME_ is turned Off"
+                        }
+                    },
+                    {
+                        "On": "1",
+                        "HumanFriendlyText": {
+                            "lang_tag": "hft_device_turned_on",
+                            "text": "_DEVICE_NAME_ is turned On"
+                        }
+                    }
+                ],
+                "name": "Status",
+                "comparisson": "=",
+                "prefix": {},
+                "suffix": {}
+            }]
+        },
+        {
+            "id": 2,
+            "label": {
+                "lang_tag": "main_input",
+                "text": "Main Input"
+            },
+            "serviceId": "urn:shward1-com:serviceId:PioneerNavigation1",
+            "argumentList": [{
+                "id": 1,
+                "dataType": "string",
+                "defaultValue": "HDMI1",
+                "allowedValueList": [{
+                        "input": "DVD",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_dvd",
+                            "text": "_DEVICE_NAME_ is on Main Input DVD"
+                        }
+                    },
+                    {
+                        "input": "BD",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_bd",
+                            "text": "_DEVICE_NAME_ is on Main Input BD"
+                        }
+                    },
+                    {
+                        "input": "TVSAT",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_tvsat",
+                            "text": "_DEVICE_NAME_ is on Main Input TV/SAT"
+                        }
+                    },
+                    {
+                        "input": "DVDBDR",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_dvdbdr",
+                            "text": "_DEVICE_NAME_ is on Main Input DVD/BDR"
+                        }
+                    },
+                    {
+                        "input": "Video1",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_video1",
+                            "text": "_DEVICE_NAME_ is on Main Input Video 1"
+                        }
+                    },
+                    {
+                        "input": "Video2",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_video2",
+                            "text": "_DEVICE_NAME_ is on Main Input Video 2"
+                        }
+                    },
+                    {
+                        "input": "HDMI1",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_hdmi1",
+                            "text": "_DEVICE_NAME_ is on Main Input HDMI 1"
+                        }
+                    },
+                    {
+                        "input": "HDMI2",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_hdmi2",
+                            "text": "_DEVICE_NAME_ is on Main Input HDMI 2"
+                        }
+                    },
+                    {
+                        "input": "HDMI3",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_hdmi3",
+                            "text": "_DEVICE_NAME_ is on Main Input HDMI 3"
+                        }
+                    },
+                    {
+                        "input": "HDMI4",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_hdmi4",
+                            "text": "_DEVICE_NAME_ is on Main Input HDMI 4"
+                        }
+                    },
+                    {
+                        "input": "HDMI5",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_hdmi5",
+                            "text": "_DEVICE_NAME_ is on Main Input HDMI 5"
+                        }
+                    },
+                    {
+                        "input": "Internet",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_internet",
+                            "text": "_DEVICE_NAME_ is on Main Input Internet"
+                        }
+                    },
+                    {
+                        "input": "iPodUSB",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_ipodusb",
+                            "text": "_DEVICE_NAME_ is on Main Input iPod/USB"
+                        }
+                    },
+                    {
+                        "input": "XMRadio",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_xmradio",
+                            "text": "_DEVICE_NAME_ is on Main Input XM Radio"
+                        }
+                    },
+                    {
+                        "input": "CD",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_cd",
+                            "text": "_DEVICE_NAME_ is on Main Input CD"
+                        }
+                    },
+                    {
+                        "input": "CDRTape",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_cdrtape",
+                            "text": "_DEVICE_NAME_ is on Main Input CD-R/Tape"
+                        }
+                    },
+                    {
+                        "input": "Tuner",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_tuner",
+                            "text": "_DEVICE_NAME_ is on Main Input Tuner"
+                        }
+                    },
+                    {
+                        "input": "Phono",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_phono",
+                            "text": "_DEVICE_NAME_ is on Main Input Phono"
+                        }
+                    },
+                    {
+                        "input": "SATCBL",
+                        "HumanFriendlyText": {
+                            "lang_tag": "input_main_satcbl",
+                            "text": "_DEVICE_NAME_ is on Main Input SAT/CBL"
+                        }
+                    }
+                ],
+                "name": "MainInput",
+                "comparison": "=",
+                "prefix": {
+                    "lang_tag": "main_input",
+                    "text": "Main Input"
+                },
+                "suffix": {}
+            }]
+        }
+    ],
+    "DeviceType": "urn:schemas-onkyo-com:device:Receiver:1",
+    "device_type": "urn:schemas-onkyo-com:device:Receiver:1"
+}
