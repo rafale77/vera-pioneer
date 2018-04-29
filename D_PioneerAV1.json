@@ -151,6 +151,28 @@
                             "Value": "1"
                         }]
                     }
+                },{
+                    "ControlGroup": "1",
+                    "ControlType": "button",
+                    "Label": {
+                        "lang_tag": "reconnect",
+                        "text": "Reconnect"
+                    },
+                    "top": "0",
+                    "left": "1",
+                    "Display": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Variable": "Status",
+                        "Value": "0",
+                        "Top": 30,
+                        "Left": 180,
+                        "Width": 76,
+                        "Height": 20
+                    },
+                    "Command": {
+                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
+                        "Action": "Reconnect"
+                    }
                 },          {
                 "ControlGroup": 1,
                 "ControlType": "line_break"
