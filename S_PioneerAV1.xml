@@ -8,6 +8,7 @@
   <actionList>
     <action><name>VolumeUp</name><argumentList></argumentList></action>
     <action><name>VolumeDown</name><argumentList></argumentList></action>
+    <action><name>Reconnect</name><argumentList></argumentList></action>
     <action><name>Mute</name><argumentList></argumentList></action>
     <action><name>UnMute</name><argumentList></argumentList></action>
     <action><name>ToggleMute</name><argumentList></argumentList></action>
