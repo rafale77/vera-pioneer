@@ -76,7 +76,7 @@
               if (luup.io.write(cmd) == false) then
                     log("Cannot send command " .. cmd .. " communications error")
                     luup.set_failure(true)
-	            PioneerAVStartup(lul_device)
+--	            PioneerAVStartup(lul_device)
                     return false
     		  end
         end
@@ -457,6 +457,11 @@
             <serviceId>urn:shward1-com:serviceId:PioneerNavigation1</serviceId>
             <name>inPhono</name>
             <run>sendCommand("00FN")</run>
+        </action>
+	<action>
+            <serviceId>urn:shward1-com:serviceId:PioneerNavigation1</serviceId>
+            <name>Reconnect</name>
+            <run>PioneerAVStartup(lul_device)</run>
         </action>
     </actionList>
 </implementation>
