@@ -1,15 +1,12 @@
 "use strict";
+/* globals MultiBox,ALTUI_PluginDisplays,_T */
 
 var Pioneer_Displays= ( function( window, undefined ) {
-
 
 	function _drawPioneer( device ) {
 		var html ="";
 		var level = parseInt(MultiBox.getStatus( device, 'urn:upnp-org:serviceId:RenderingControl1', 'Volume' ));
-		var status = parseInt(MultiBox.getStatus( device, 'urn:upnp-org:serviceId:SwitchPower1', 'Status' );
-		if ( ALTUI_PluginDisplays.isBusyStatus(device) )  {
-			status = -1;
-		}
+		var status = parseInt(MultiBox.getStatus( device, 'urn:upnp-org:serviceId:SwitchPower1', 'Status' ));
 		html += ALTUI_PluginDisplays.createOnOffButton( status,"altui-onoffbtn-"+device.altuiid, _T("OFF,ON") , "pull-right");
 
 		html += ("<span id='slider-val-"+device.altuiid+"' class='altui-dimmable' >"+level+"% </span>");
@@ -23,5 +20,13 @@ var Pioneer_Displays= ( function( window, undefined ) {
 			$("#slider-val-"+device.altuiid).text( ui.value+'%');
 		});
 		return html;
-	};
+                }
+    return {
+        /* exports */
+        drawPioneer: _drawPioneer
+	toggleOnOffButton : function (altuiid,htmlid) {
+		_toggleButton(altuiid, htmlid, 'urn:upnp-org:serviceId:SwitchPower1', 'Status', function(id,newval) {
+			MultiBox.setOnOff( altuiid, newval);
+		});
+    };
 })( window );
