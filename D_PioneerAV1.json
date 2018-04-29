@@ -168,7 +168,7 @@
                     },
                     "Command": {
                         "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
-                        "Action": "Reconnect"
+                        "Action": "Reconnect",
 			"Parameters": []
                     }
                 },          {
