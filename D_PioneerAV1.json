@@ -161,9 +161,6 @@
                     "top": "0",
                     "left": "1",
                     "Display": {
-                        "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
-                        "Variable": "Status",
-                        "Value": "0",
                         "Top": 30,
                         "Left": 180,
                         "Width": 76,
@@ -172,6 +169,7 @@
                     "Command": {
                         "Service": "urn:shward1-com:serviceId:PioneerNavigation1",
                         "Action": "Reconnect"
+			"Parameters": []
                     }
                 },          {
                 "ControlGroup": 1,
@@ -1270,6 +1268,6 @@
             }]
         }
     ],
-    "DeviceType": "urn:schemas-onkyo-com:device:Receiver:1",
-    "device_type": "urn:schemas-onkyo-com:device:Receiver:1"
+    "DeviceType": "urn:schemas-pioneer-com:device:Receiver:1",
+    "device_type": "urn:schemas-pioneer-com:device:Receiver:1"
 }
