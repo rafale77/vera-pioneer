@@ -1268,6 +1268,6 @@
             }]
         }
     ],
-    "DeviceType": "urn:schemas-pioneer-com:device:Receiver:1",
-    "device_type": "urn:schemas-pioneer-com:device:Receiver:1"
+    "DeviceType": "urn:schemas-shward1-com:device:avreceiver:1",
+    "device_type": "urn:schemas-shward1-com:device:avreceiver:1"
 }
