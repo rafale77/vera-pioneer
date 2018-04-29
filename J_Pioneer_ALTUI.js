@@ -25,7 +25,7 @@ var Pioneer_Displays= ( function( window, undefined ) {
         /* exports */
         drawPioneer: _drawPioneer
 	toggleOnOffButton : function (altuiid,htmlid) {
-		_toggleButton(altuiid, htmlid, 'urn:upnp-org:serviceId:SwitchPower1', 'Status', function(id,newval) {
+		ALTUI_PluginDisplays.toggleButton(altuiid, htmlid, 'urn:upnp-org:serviceId:SwitchPower1', 'Status', function(id,newval) {
 			MultiBox.setOnOff( altuiid, newval);
 		});
     };
