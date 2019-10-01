@@ -185,7 +185,7 @@
 	      <action>
             <serviceId>urn:shward1-com:serviceId:PioneerNavigation1</serviceId>
             <name>Reconnect</name>
-            <run>Reconnect(lul_device)</run>
+            <run>Connect(lul_device)</run>
         </action>
     </actionList>
 </implementation>

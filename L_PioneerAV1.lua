@@ -70,7 +70,7 @@ local function sendCommand(cmd)
   local result2
     if not result then
           log("Cannot send command " .. cmd .. " communications error, retrying")
-          Reconnect(lul_device)
+          Connect(lul_device)
           result2 = luup.io.write(cmd)
           if not result2 and (fail == "false" or fail =="0") then
             log("Cannot send command " .. cmd .. " communications error")
@@ -89,12 +89,6 @@ end
 local function setVolume(code)
     local code = string.format("%03d" ,(math.floor(((maxVol-minVol)*code)/100+minVol+1)))
     sendCommand(code .. "VL")
-end
-
-local function get_dev_and_socket (device)
-  local devNo = tonumber (device) or scheduler.current_device()
-  local dev = devNo and luup.devices [devNo]
-  return dev, (dev or {io = {}}).io.socket, devNo
 end
 
 function setIfChanged(serviceId, name, value, deviceId)
@@ -275,13 +269,6 @@ function Pioneer_incoming(lul_data)
     else
      handleResponse(func, code, data)
      log("handleResponse")
-    end
-end
-
-function Reconnect(lul_device)
-    local dev, sock = get_dev_and_socket(lul_device)
-    if dev and sock then
-        Connect(device)
     end
 end
 
